@@ -1,0 +1,24 @@
+
+<img src="http://via.placeholder.com/300" alt="Product 2">
+<form (submit)="submitValidBid()" >
+  <input type="number" 
+  name="bid" 
+  [(ngModel)]="bid.price" 
+  #price="ngModel"
+   />
+  <input type="submit" value="Bid" />
+</form>
+<p style="color: red;" *ngIf="tooLow">Price must be higher than previous bid.</p>
+
+<p>Current Bids:</p>
+<div class="currBids">
+<ul *ngIf="!hasNotUsedSearch">
+  <li *ngFor="let bidder of showBids">{{bidder.name}}: ${{bidder.price}}</li>
+</ul>
+<ul *ngIf="hasNotUsedSearch">
+  <li *ngFor="let bidder of prod2Bidders">{{bidder.name}}: ${{bidder.price}}</li>
+</ul>
+</div>
+<form>
+  <input type="text" name="search" placeholder="Search" [(ngModel)]="searchVal" (keyup)="searchBidders()"/>
+</form>

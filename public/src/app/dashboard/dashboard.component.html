@@ -1,0 +1,7 @@
+<h1>Bid Now!</h1>
+<button (click)="logoutUser()">Logout</button>
+<app-product1 class="product" ></app-product1>
+<app-product2 class="product" ></app-product2>
+<app-product3 class="product" ></app-product3>
+<button (click)="endBid()">End Bid</button>
+<p style="color: red;" *ngIf="cannotEndBid" >Alert! Cannot end bid. One of the products does not have a bid yet.</p>
